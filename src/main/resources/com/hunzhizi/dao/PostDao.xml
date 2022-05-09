@@ -6,9 +6,9 @@
 <!--    boolean createPost(Post post);-->
     <insert id="createPost" >
         insert into post(user_id,up_num,collection_num,comment_num,report_num,content,create_time,
-        last_edit_time,post_type,img_addr_list,priority)
+        last_edit_time,post_type,img_addr_list,priority,parent_zhi_hu)
         values(#{userId},#{upNum},#{collectionNum},#{commentNum},#{reportNum},#{content}
-        ,#{createTime},#{lastEditTime},#{postType},#{imgAddrList},#{priority})
+        ,#{createTime},#{lastEditTime},#{postType},#{imgAddrList},#{priority},#{parentZhiHu})
     </insert>
 
 <!--    boolean delPostByPostId(Integer postId);-->

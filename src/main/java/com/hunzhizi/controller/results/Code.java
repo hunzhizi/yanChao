@@ -61,6 +61,29 @@ public class Code {
     public static final Integer ACTIVITY_COMMIT_DEL_ERR = 20430;
     public static final Integer ACTIVITY_COMMIT_GET_ERR = 20440;
 
+    //certificate 相关
+    public static final Integer CERTIFICATE_SAVE_OK = 20511;
+    public static final Integer CERTIFICATE_UPDATE_OK = 20521;
+    public static final Integer CERTIFICATE_DEL_OK = 20531;
+    public static final Integer CERTIFICATE_GET_OK = 20541;
+
+    public static final Integer CERTIFICATE_SAVE_ERR = 20510;
+    public static final Integer CERTIFICATE_UPDATE_ERR = 20520;
+    public static final Integer CERTIFICATE_DEL_ERR = 20530;
+    public static final Integer CERTIFICATE_GET_ERR = 20540;
+
+    //certificate 相关
+    public static final Integer ZHI_HU_SAVE_OK = 20611;
+    public static final Integer ZHI_HU_UPDATE_OK = 20621;
+    public static final Integer ZHI_HU_DEL_OK = 20631;
+    public static final Integer ZHI_HU_GET_OK = 20641;
+
+    public static final Integer ZHI_HU_SAVE_ERR = 20610;
+    public static final Integer ZHI_HU_UPDATE_ERR = 20620;
+    public static final Integer ZHI_HU_DEL_ERR = 20630;
+    public static final Integer ZHI_HU_GET_ERR = 20640;
+
+
     //系统错误编码
     public static final Integer PASS_VALUE_ERR = 30001; //传值错误，例如：userId 为null
 

@@ -26,7 +26,7 @@ public class Post {
     private Integer postType = 0;
     private String imgAddrList;   //存放img的url
     private int priority = 0;       //根据返回值算出来的一个值，所以，应该放在dto里面
-
+    private Integer parentZhiHu;
 
     public Integer getPostId() {
         return postId;
@@ -128,5 +128,13 @@ public class Post {
     public void setPriority() {
         this.priority = upNum + 3 * collectionNum + 14 * commentNum
                         - (int)((new Date().getTime() - createTime.getTime())/1000/60/5);
+    }
+
+    public Integer getParentZhiHu() {
+        return parentZhiHu;
+    }
+
+    public void setParentZhiHu(Integer parentZhiHu) {
+        this.parentZhiHu = parentZhiHu;
     }
 }

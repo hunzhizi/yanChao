@@ -38,13 +38,17 @@ public class PostController {
     public Result delPostByPostId(@PathVariable Integer postId) {
         if (postId == null) return new Result(Code.PASS_VALUE_ERR);
         boolean flag = postService.delPostByPostId(postId);
-        return (flag ? new Result(Code.POST_DEL_OK) : new Result(Code.POST_DEL_ERR));
+        return (flag ?
+                new Result(Code.POST_DEL_OK) :
+                new Result(Code.POST_DEL_ERR));
     }
 
     @PostMapping("/create")
     public Result createPost(Post post) {
         boolean flag = postService.createPost(post);
-        return (flag ? new Result(Code.POST_SAVE_OK) : new Result(Code.POST_SAVE_ERR));
+        return (flag ?
+                new Result(Code.POST_SAVE_OK) :
+                new Result(Code.POST_SAVE_ERR));
     }
 
     @GetMapping("/byPriority/{pageNum}/{pageSize}")
