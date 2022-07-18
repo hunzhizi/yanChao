@@ -13,9 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ActivityCommitService {
     //提交信息
     boolean createCommit(ActivityCommit commit);
+
     //取消活动
-    boolean deleteCommitByUserIdNActivityId(Integer userId,  Integer activityId);
+    boolean deleteCommitByUserIdNActivityId(Integer userId, Integer activityId);
+
     //根据用户id进行查找
-    ActivityCommit getCommitByUserIdNActivityId(Integer userId,Integer activityId);
+    ActivityCommit getCommitByUserIdNActivityId(Integer userId, Integer activityId);
 }
 

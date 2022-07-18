@@ -20,19 +20,19 @@ public class CertificateDaoDaoTest extends BaseTest {
     private CertificateDao certificateDao;
 
     @Test
-    public void createCertificate(){
+    public void createCertificate() {
         Certificate certificate = new Certificate();
         certificate.setUserId(1);
         certificateDao.createCertificate(certificate);
     }
 
     @Test
-    public void delCertificate(){
+    public void delCertificate() {
         certificateDao.delCertificate(1);
     }
 
     @Test
-    public void getAllCertificate(){
+    public void getAllCertificate() {
         List<Certificate> allCertificate = certificateDao.getAllCertificate();
         Certificate certificate = allCertificate.get(0);
     }

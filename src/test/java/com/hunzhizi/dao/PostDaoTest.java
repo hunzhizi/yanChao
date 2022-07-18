@@ -16,23 +16,27 @@ import java.util.List;
 public class PostDaoTest extends BaseTest {
     @Autowired
     PostDao postDao;
+
     @Test
-    public void createPost(){
+    public void createPost() {
         Post post = new Post();
         post.setContent("欢迎来到燕巢");
         post.setUserId(1);
         postDao.createPost(post);
     }
+
     @Test
-    public void delPostByPostId(){
+    public void delPostByPostId() {
 
     }
+
     @Test
-    public void updatePost(){
+    public void updatePost() {
 
     }
+
     @Test
-    public void getPostByUserId(){
+    public void getPostByUserId() {
 
         List<Post> posts = postDao.getPostByUserId(1);
         for (Post post : posts) {
@@ -40,12 +44,14 @@ public class PostDaoTest extends BaseTest {
         }
 
     }
+
     @Test
-    public void getPostByPriority(){
+    public void getPostByPriority() {
 
     }
+
     @Test
-    public void getPostByLastEditTime(){
+    public void getPostByLastEditTime() {
 
     }
 

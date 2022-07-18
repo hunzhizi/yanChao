@@ -18,7 +18,7 @@ public class ActivityDaoTest extends BaseTest {
     ActivityDao activityDao;
 
     @Test
-    public void createActivity(){
+    public void createActivity() {
         Activity activity = new Activity();
         activity.setActivityDesc("蓝桥杯比赛报名,希望大家参加2");
         activity.setTitle("蓝桥杯比赛报名");
@@ -27,15 +27,17 @@ public class ActivityDaoTest extends BaseTest {
         activity.setDeadline(new Date());
         activityDao.createActivity(activity);
     }
+
     @Test
-    public void updateActivity(){
+    public void updateActivity() {
         Activity activity = new Activity();
         activity.setActivityDesc("大家不要参加啊");
         activity.setActivityId(1);
         activityDao.updateActivity(activity);
     }
+
     @Test
-    public void getActivityById(){
+    public void getActivityById() {
         Activity activityById = activityDao.getActivityById(1);
         System.out.println(activityById.getActivityDesc());
     }

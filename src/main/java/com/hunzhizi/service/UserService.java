@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserService {
     /**
      * 增添用户信息
+     *
      * @param user
      * @return
      */
@@ -24,6 +25,7 @@ public interface UserService {
 
     /**
      * 更新用户信息
+     *
      * @param user
      * @return
      */
@@ -31,14 +33,13 @@ public interface UserService {
     boolean updateUser(User user);
 
 
-
     /**
      * 根据uuid获取用户
+     *
      * @param userId
      * @return
      */
     User getUserById(Integer userId);
-
 
 
 }

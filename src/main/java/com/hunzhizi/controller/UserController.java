@@ -30,14 +30,14 @@ public class UserController {
     UserService userService;
 
     @PostMapping
-    public Result save(User user){
+    public Result save(User user) {
         boolean flag = userService.addUser(user);
-        return new Result(flag ? Code.USER_SAVE_OK :Code.USER_SAVE_ERR);
+        return new Result(flag ? Code.USER_SAVE_OK : Code.USER_SAVE_ERR);
     }
 
     @PostMapping("/update")
-    public Result update( User user, MultipartFile img){
-        if(!(img==null||img.isEmpty())){
+    public Result update(User user, MultipartFile img) {
+        if (!(img == null || img.isEmpty())) {
             try {
                 String addr = FileUtil.setFileAddr(user.getUserId(), img);
                 img.transferTo(new File(addr));
@@ -47,15 +47,16 @@ public class UserController {
                 return new Result(Code.USER_UPDATE_ERR);
             }
         }
-        System.out.println(FileUtil.setFileAddr(user.getUserId(),img));
+        System.out.println(FileUtil.setFileAddr(user.getUserId(), img));
         System.out.println(user.getBio());
         boolean flag = userService.updateUser(user);
-        return new Result(flag?Code.USER_UPDATE_OK :Code.USER_UPDATE_ERR);
+        return new Result(flag ? Code.USER_UPDATE_OK : Code.USER_UPDATE_ERR);
     }
-    @RequestMapping(value = "/profile",method = RequestMethod.POST)
-    public Result getProfile(String imgpath){
+
+    @RequestMapping(value = "/profile", method = RequestMethod.POST)
+    public Result getProfile(String imgpath) {
         File file = new File(imgpath);
-        if(file.exists()){
+        if (file.exists()) {
             BufferedImage image = null;
             try {
                 FileInputStream in = new FileInputStream(file);
@@ -65,7 +66,7 @@ public class UserController {
                 e.printStackTrace();
                 return new Result(Code.PROFILE_GET_ERR);
             }
-            return new Result(Code.PROFILE_GET_OK,image);
+            return new Result(Code.PROFILE_GET_OK, image);
         }
         return new Result(Code.PROFILE_GET_ERR);
     }
@@ -82,9 +83,9 @@ public class UserController {
 
 
     @GetMapping("/{userid}")
-    public Result get(@PathVariable Integer userid){
+    public Result get(@PathVariable Integer userid) {
         User user = userService.getUserById(userid);
-        return (user!=null? new Result(Code.USER_GET_OK,user): new Result(Code.USER_GET_ERR));
+        return (user != null ? new Result(Code.USER_GET_OK, user) : new Result(Code.USER_GET_ERR));
     }
 
 //    @GetMapping("/{pageNum}/{pageSize}")
@@ -92,7 +93,6 @@ public class UserController {
 //        return userService.getAll(pageNum,pageSize);
 //
 //    }
-
 
 
 }

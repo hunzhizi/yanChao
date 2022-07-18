@@ -19,7 +19,7 @@ public class ProjectExceptionAdvice {
     @ExceptionHandler(BusinessException.class)
     @ResponseBody
     //对出现异常的情况进行拦截，并将其处理成统一的页面数据结果格式
-    public Result doBussinessException(BusinessException e){
-        return new Result(e.getCode(),e.getMessage());
+    public Result doBussinessException(BusinessException e) {
+        return new Result(e.getCode(), e.getMessage());
     }
 }

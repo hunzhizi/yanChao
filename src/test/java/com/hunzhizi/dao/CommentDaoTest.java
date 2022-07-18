@@ -16,16 +16,18 @@ import java.util.List;
 public class CommentDaoTest extends BaseTest {
     @Autowired
     private CommentDao commentDao;
+
     @Test
-    public void createComment(){
+    public void createComment() {
         Comment comment = new Comment();
         comment.setContent("xdm，有无知道什么时候放暑假的");
         comment.setUserId(2);
         comment.setPostId(3);
         commentDao.createComment(comment);
     }
+
     @Test
-    public void updateComment(){
+    public void updateComment() {
         Comment comment = new Comment();
         comment.setCommentId(1);
         comment.setUpNum(100);
@@ -34,7 +36,7 @@ public class CommentDaoTest extends BaseTest {
     }
 
     @Test
-    public void getCommentByPostId(){
+    public void getCommentByPostId() {
         List<Comment> commentByPostId = commentDao.getCommentByPostId(3);
         for (Comment comment : commentByPostId) {
             System.out.println(comment.getContent());

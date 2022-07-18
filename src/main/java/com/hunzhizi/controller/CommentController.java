@@ -23,7 +23,7 @@ public class CommentController {
     private CommentService commentService;
 
     @PostMapping
-    public Result createComment(Comment comment){
+    public Result createComment(Comment comment) {
         boolean flag = commentService.createComment(comment);
         return flag ?
                 new Result(Code.COMMENT_SAVE_OK) :
@@ -32,14 +32,15 @@ public class CommentController {
     }
 
     @PutMapping
-    public Result updateComment(Comment comment){
+    public Result updateComment(Comment comment) {
         boolean flag = commentService.updateComment(comment);
         return flag ?
                 new Result(Code.COMMENT_UPDATE_OK) :
                 new Result(Code.COMMENT_UPDATE_ERR);
     }
+
     @GetMapping("/{postId}/{pageNum}/{pageSize}")
-    public PageInfo<Comment> getCommentByPostId(@PathVariable Integer postId,@PathVariable Integer pageNum, @PathVariable Integer pageSize){
+    public PageInfo<Comment> getCommentByPostId(@PathVariable Integer postId, @PathVariable Integer pageNum, @PathVariable Integer pageSize) {
         return commentService.getCommentByPostId(postId, pageNum, pageSize);
     }
 }

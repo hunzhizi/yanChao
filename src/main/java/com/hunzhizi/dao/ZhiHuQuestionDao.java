@@ -12,8 +12,11 @@ import java.util.List;
  */
 public interface ZhiHuQuestionDao {
     List<ZhiHuQuestion> getQuestionsByPriority();
+
     boolean createQuestion(ZhiHuQuestion question);
+
     boolean delQuestionById(Integer questionId);
+
     boolean updateQuestion(ZhiHuQuestion question);
 
     //根据关键词查询

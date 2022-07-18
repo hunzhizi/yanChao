@@ -10,11 +10,11 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-<!--    spring 整合mybatis-->
+    <!--    spring 整合mybatis-->
     <bean class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.hunzhizi.domain"/>
-<!--        分页插件-->
+        <!--        分页插件-->
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
@@ -44,12 +44,12 @@
 
     <context:property-placeholder location="classpath*:jdbc.properties"/>
 
-<!--    映射扫描-->
+    <!--    映射扫描-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.hunzhizi.dao"/>
     </bean>
 
-<!--    事务-->
+    <!--    事务-->
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>

@@ -70,7 +70,7 @@ public class PostController {
     }
 
     @PostMapping("/update")
-    public Result updatePost(Post post, MultipartFile... imgs){
+    public Result updatePost(Post post, MultipartFile... imgs) {
         /**
          * 处理上传文件相关代码在此
          */

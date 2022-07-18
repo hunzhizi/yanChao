@@ -29,14 +29,14 @@ public class ActivityCommitServiceImpl implements ActivityCommitService {
 
     //实际上可以使用activity_commit_id 进行删除
     @Override
-    public boolean deleteCommitByUserIdNActivityId(Integer userId,Integer activityId) {
+    public boolean deleteCommitByUserIdNActivityId(Integer userId, Integer activityId) {
         activityDao.minusParticipateNum(activityId);
-        return commitDao.deleteCommitByUserIdNActivityId(userId,activityId);
+        return commitDao.deleteCommitByUserIdNActivityId(userId, activityId);
     }
 
     @Override
     public ActivityCommit getCommitByUserIdNActivityId(Integer userId, Integer activityId) {
-        return commitDao.getCommitByUserIdNActivityId(userId,activityId);
+        return commitDao.getCommitByUserIdNActivityId(userId, activityId);
     }
 
 

@@ -23,10 +23,11 @@ public class ZhiHuQuestionImpl implements ZhiHuQuestionService {
 
     @Autowired
     private ZhiHuQuestionDao zhiHuQuestionDao;
+
     @Override
-    public PageInfo<ZhiHuQuestion> getQuestionsByPriority(Integer pageNum,Integer pageSize) {
+    public PageInfo<ZhiHuQuestion> getQuestionsByPriority(Integer pageNum, Integer pageSize) {
         List<ZhiHuQuestion> questions = zhiHuQuestionDao.getQuestionsByPriority();
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         return new PageInfo<>(questions);
     }
 
@@ -34,7 +35,7 @@ public class ZhiHuQuestionImpl implements ZhiHuQuestionService {
     public PageInfo<ZhiHuQuestion> getQuestionsByRand(Integer pageNum, Integer pageSize) {
         List<ZhiHuQuestion> questions = zhiHuQuestionDao.getQuestionsByPriority();
         Collections.shuffle(questions);
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         return new PageInfo<>(questions);
     }
 
@@ -50,10 +51,11 @@ public class ZhiHuQuestionImpl implements ZhiHuQuestionService {
 
     @Override
     public boolean updateQuestion(ZhiHuQuestion question) {
-        if(question.getReportNum()!=null && question.getReportNum()>=5){
+        if (question.getReportNum() != null && question.getReportNum() >= 5) {
             return zhiHuQuestionDao.delQuestionById(question.getZhiHuQuestionId());
         }
         question.setLastEditTime(new Date());
         return zhiHuQuestionDao.updateQuestion(question);
+        //应该更新一下priority
     }
 }

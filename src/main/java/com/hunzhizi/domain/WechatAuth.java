@@ -9,12 +9,12 @@ import java.util.Date;
  * @description: 创建本地账号
  */
 public class WechatAuth {
-     private Long WechatAuthId;
-//     private String username;        日后可以做扩展
+    private Long WechatAuthId;
+    //     private String username;        日后可以做扩展
 //     private String password;
-     private String openId;
-     private Date createTime;
-     private User user;
+    private String openId;
+    private Date createTime;
+    private User user;
 
 
 }

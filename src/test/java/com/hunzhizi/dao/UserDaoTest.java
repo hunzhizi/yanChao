@@ -21,8 +21,9 @@ import static org.junit.Assert.assertEquals;
 public class UserDaoTest extends BaseTest {
     @Autowired
     UserDao userDao;
+
     @Test
-    public void testSave(){
+    public void testSave() {
         User user = new User();
         user.setNickname("hunzhizi");
         user.setGender(1);
@@ -38,15 +39,17 @@ public class UserDaoTest extends BaseTest {
         user.setProfileAddr("test");
         userDao.save(user);
     }
+
     @Test
-    public void testUpdate(){
+    public void testUpdate() {
         User user = new User();
         user.setUserId(1);
         user.setBio("周少真nb，年薪250");
         userDao.update(user);
     }
+
     @Test
-    public void testGet(){
+    public void testGet() {
         User user = userDao.get(1);
         System.out.println(user.getLastEditTime());
         System.out.println(user.getCreateTime());
@@ -54,7 +57,7 @@ public class UserDaoTest extends BaseTest {
     }
 
     @Test
-    public void test(){
+    public void test() {
         File file = new File("E:/img/yanChao/temp1.txt");
         try {
             file.createNewFile();

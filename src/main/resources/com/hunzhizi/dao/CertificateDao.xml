@@ -3,20 +3,20 @@
 
 
 <mapper namespace="com.hunzhizi.dao.CertificateDao">
-<!--    boolean createCertificate(Certificate certificateDao);-->
+    <!--    boolean createCertificate(Certificate certificateDao);-->
     <insert id="createCertificate" parameterType="certificate">
         insert into certificate(user_id,stu_name,stu_id,`desc`,img_addr)
         values(#{userId},#{stuName},#{stuId},#{desc},#{imgAddr})
     </insert>
 
-<!--    boolean delCertificate(Integer certificateId);-->
-    <delete id="delCertificate" >
+    <!--    boolean delCertificate(Integer certificateId);-->
+    <delete id="delCertificate">
         delete from certificate
         where certificate_id = #{certificateId}
     </delete>
 
-<!--    List<Certificate> getAllCertificate();-->
-    <select id="getAllCertificate"  resultType="certificate">
+    <!--    List<Certificate> getAllCertificate();-->
+    <select id="getAllCertificate" resultType="certificate">
         select * from certificate
     </select>
 

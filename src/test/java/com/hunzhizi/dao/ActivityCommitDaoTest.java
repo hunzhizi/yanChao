@@ -16,7 +16,7 @@ public class ActivityCommitDaoTest extends BaseTest {
     private ActivityCommitDao activityCommitDao;
 
     @Test
-    public void createCommit(){
+    public void createCommit() {
         ActivityCommit activityCommit = new ActivityCommit();
         activityCommit.setUserId(1);
         activityCommit.setActivityId(1);
@@ -27,12 +27,14 @@ public class ActivityCommitDaoTest extends BaseTest {
         activityCommit.setStuId("201911040113");
         activityCommitDao.createCommit(activityCommit);
     }
+
     @Test
-    public void deleteCommitByUserIdNActivityId(){
-        activityCommitDao.deleteCommitByUserIdNActivityId(2,3);
+    public void deleteCommitByUserIdNActivityId() {
+        activityCommitDao.deleteCommitByUserIdNActivityId(2, 3);
     }
+
     @Test
-    public void getCommitByUserId(){
+    public void getCommitByUserId() {
 
     }
 }

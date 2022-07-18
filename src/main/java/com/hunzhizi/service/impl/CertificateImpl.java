@@ -24,21 +24,22 @@ public class CertificateImpl implements CertificateService {
     private CertificateDao certificateDao;
     @Autowired
     private UserDao userDao;
+
     @Override
     public boolean addCertificate(Certificate certificate) {
         return certificateDao.createCertificate(certificate);
     }
 
     @Override
-    public boolean certificate(boolean success,Certificate certificate) {
+    public boolean certificate(boolean success, Certificate certificate) {
         boolean flag;
-        if(success){
+        if (success) {
             User user = new User();
             user.setUserId(certificate.getUserId());
             user.setRecognized(true);
-            flag =  userDao.update(user);
-        }else{
-            flag =  certificateDao.delCertificate(certificate.getCertificateId());
+            flag = userDao.update(user);
+        } else {
+            flag = certificateDao.delCertificate(certificate.getCertificateId());
             //删除 + 通知
             //通知之后可能会用redis处理
         }
@@ -46,8 +47,8 @@ public class CertificateImpl implements CertificateService {
     }
 
     @Override
-    public PageInfo<Certificate> getAllCertificate(Integer pageNum,Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+    public PageInfo<Certificate> getAllCertificate(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Certificate> allCertificate = certificateDao.getAllCertificate();
         return new PageInfo<>(allCertificate);
     }

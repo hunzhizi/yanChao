@@ -14,6 +14,7 @@ import java.util.List;
 public interface UserDao {
     /**
      * 存储用户信息
+     *
      * @param user
      * @return
      */
@@ -21,21 +22,20 @@ public interface UserDao {
 
     /**
      * 更新用户信息
+     *
      * @param user
      * @return
      */
     boolean update(User user);
 
 
-
     /**
      * 根据uuid获取用户
+     *
      * @param userId
      * @return
      */
     User get(Integer userId);
-
-
 
 
 }

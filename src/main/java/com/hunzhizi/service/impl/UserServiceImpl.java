@@ -23,6 +23,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
     @Override
     public boolean addUser(User user) {
         return userDao.save(user);
@@ -30,11 +31,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateUser(User user) {
-        if(user.getUserId()==null){
+        if (user.getUserId() == null) {
             throw new BusinessException(Code.PASS_VALUE_ERR);
         }
         //如果举报数量大于5则，禁用用户
-        if(user.getReportNum()!=null && user.getReportNum()>=5){
+        if (user.getReportNum() != null && user.getReportNum() >= 5) {
             user.setForbidden(true);
         }
         return userDao.update(user);

@@ -21,6 +21,7 @@ public class ActivityImpl implements ActivityService {
 
     @Autowired
     private ActivityDao activityDao;
+
     @Override
     public boolean createActivity(Activity activity) {
         return activityDao.createActivity(activity);
@@ -38,7 +39,7 @@ public class ActivityImpl implements ActivityService {
 
     @Override
     public PageInfo<Activity> getAllActivity(Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         List<Activity> allActivity = activityDao.getAllActivity();
         return new PageInfo<>(allActivity);
     }

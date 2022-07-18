@@ -20,7 +20,7 @@ public class Post {
     private Integer commentNum = 0;     //评论数量
     private Integer reportNum = 0;      //举报数量
     private String Content;     //内容
-//    private List<Comment> comments;
+    //    private List<Comment> comments;
     private Date createTime = new Date();
     private Date lastEditTime = new Date();
     private Integer postType = 0;
@@ -84,7 +84,7 @@ public class Post {
         Content = content;
     }
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public Date getCreateTime() {
         return createTime;
     }
@@ -93,7 +93,7 @@ public class Post {
         this.createTime = createTime;
     }
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public Date getLastEditTime() {
         return lastEditTime;
     }
@@ -127,7 +127,7 @@ public class Post {
      */
     public void setPriority() {
         this.priority = upNum + 3 * collectionNum + 14 * commentNum
-                        - (int)((new Date().getTime() - createTime.getTime())/1000/60/5);
+                - (int) ((new Date().getTime() - createTime.getTime()) / 1000 / 60 / 5);
     }
 
     public Integer getParentZhiHu() {

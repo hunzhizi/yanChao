@@ -3,20 +3,20 @@
 
 
 <mapper namespace="com.hunzhizi.dao.PostDao">
-<!--    boolean createPost(Post post);-->
-    <insert id="createPost" >
+    <!--    boolean createPost(Post post);-->
+    <insert id="createPost">
         insert into post(user_id,up_num,collection_num,comment_num,report_num,content,create_time,
         last_edit_time,post_type,img_addr_list,priority,parent_zhi_hu)
         values(#{userId},#{upNum},#{collectionNum},#{commentNum},#{reportNum},#{content}
         ,#{createTime},#{lastEditTime},#{postType},#{imgAddrList},#{priority},#{parentZhiHu})
     </insert>
 
-<!--    boolean delPostByPostId(Integer postId);-->
-    <delete id="delPostByPostId" >
+    <!--    boolean delPostByPostId(Integer postId);-->
+    <delete id="delPostByPostId">
         delete from post
         where post_id = #{postId}
     </delete>
-<!--    boolean updatePost(Post post);-->
+    <!--    boolean updatePost(Post post);-->
     <update id="updatePost">
         update post
         <trim prefix="set" suffixOverrides=",">
@@ -32,17 +32,17 @@
         where post_id = #{postId}
     </update>
 
-<!--    List<Post> getPostByUserId(Integer userId);-->
+    <!--    List<Post> getPostByUserId(Integer userId);-->
     <select id="getPostByUserId" resultType="Post">
         select * from post
         where user_id = #{userId}
     </select>
-<!--    List<Post> getPostByPriority();-->
-        <select id="getPostByPriority" resultType="Post">
-            select * from post
-            order by priority desc
-        </select>
-<!--    List<Post> getPostByLastEditTime();-->
+    <!--    List<Post> getPostByPriority();-->
+    <select id="getPostByPriority" resultType="Post">
+        select * from post
+        order by priority desc
+    </select>
+    <!--    List<Post> getPostByLastEditTime();-->
     <select id="getPostByLastEditTime" resultType="post">
         select * from post
         order by last_edit_time desc

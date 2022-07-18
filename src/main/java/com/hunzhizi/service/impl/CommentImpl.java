@@ -33,8 +33,8 @@ public class CommentImpl implements CommentService {
     }
 
     @Override
-    public PageInfo<Comment> getCommentByPostId(Integer postId,Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+    public PageInfo<Comment> getCommentByPostId(Integer postId, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Comment> commentByPostId = commentDao.getCommentByPostId(postId);
         return new PageInfo<>(commentByPostId);
     }

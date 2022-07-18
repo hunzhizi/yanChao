@@ -3,13 +3,13 @@
 
 
 <mapper namespace="com.hunzhizi.dao.CommentDao">
-<!--    boolean createComment(Comment comment);-->
+    <!--    boolean createComment(Comment comment);-->
     <insert id="createComment" parameterType="comment">
         insert into comment(comment_id,user_id,post_id,up_num,down_num,content,comment_create_time)
         values(#{CommentId},#{userId},#{postId},#{upNum},#{downNum},#{content},#{commentCreateTime})
     </insert>
 
-<!--    boolean updateComment(Comment comment);-->
+    <!--    boolean updateComment(Comment comment);-->
     <update id="updateComment" parameterType="comment">
         update comment
         <trim prefix="set" suffixOverrides=",">
@@ -19,8 +19,8 @@
         where comment_id = #{commentId}
     </update>
 
-<!--    List<Comment> getCommentByPostId(Integer postId);-->
-    <select id="getCommentByPostId" resultType="Comment" >
+    <!--    List<Comment> getCommentByPostId(Integer postId);-->
+    <select id="getCommentByPostId" resultType="Comment">
         select * from comment
         where post_id = #{postId}
         order by comment_create_time desc

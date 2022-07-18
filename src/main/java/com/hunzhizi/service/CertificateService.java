@@ -15,6 +15,8 @@ import java.util.List;
 @Transactional
 public interface CertificateService {
     boolean addCertificate(Certificate certificate);
-    boolean certificate(boolean success,Certificate certificate);
-    PageInfo<Certificate> getAllCertificate(Integer pageNum,Integer pageSize);
+
+    boolean certificate(boolean success, Certificate certificate);
+
+    PageInfo<Certificate> getAllCertificate(Integer pageNum, Integer pageSize);
 }

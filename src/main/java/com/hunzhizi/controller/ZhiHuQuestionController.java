@@ -21,36 +21,40 @@ public class ZhiHuQuestionController {
     private ZhiHuQuestionService zhiHuQuestionService;
 
     @GetMapping("/priority/{pageNum}/{pageSize}")
-    public Result getQuestionsByPriority(@PathVariable Integer pageNum ,@PathVariable Integer pageSize){
+    public Result getQuestionsByPriority(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
         PageInfo<ZhiHuQuestion> questions = zhiHuQuestionService.getQuestionsByPriority(pageNum, pageSize);
-        return new Result(Code.ZHI_HU_GET_OK,questions);
+        return new Result(Code.ZHI_HU_GET_OK, questions);
     }
+
     @GetMapping("/rand/{pageNum}/{pageSize}")
-    public Result getQuestionsByRand(@PathVariable Integer pageNum ,@PathVariable Integer pageSize){
+    public Result getQuestionsByRand(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
         PageInfo<ZhiHuQuestion> questions = zhiHuQuestionService.getQuestionsByRand(pageNum, pageSize);
-        return new Result(Code.ZHI_HU_GET_OK,questions);
+        return new Result(Code.ZHI_HU_GET_OK, questions);
     }
+
     @PostMapping
-    public Result createQuestion(ZhiHuQuestion question){
+    public Result createQuestion(ZhiHuQuestion question) {
         boolean flag = zhiHuQuestionService.createQuestion(question);
-        return flag?
-                new Result(Code.ZHI_HU_SAVE_OK):
+        return flag ?
+                new Result(Code.ZHI_HU_SAVE_OK) :
                 new Result(Code.ZHI_HU_SAVE_ERR);
 
     }
+
     @DeleteMapping("{id}")
-    public Result delQuestionById(@PathVariable Integer id){
+    public Result delQuestionById(@PathVariable Integer id) {
         boolean flag = zhiHuQuestionService.delQuestionById(id);
-        return flag?
-                new Result(Code.ZHI_HU_DEL_OK):
+        return flag ?
+                new Result(Code.ZHI_HU_DEL_OK) :
                 new Result(Code.ZHI_HU_DEL_ERR);
 
     }
+
     @PostMapping("/update")
-    public Result updateQuestion(ZhiHuQuestion question){
+    public Result updateQuestion(ZhiHuQuestion question) {
         boolean flag = zhiHuQuestionService.updateQuestion(question);
-        return flag?
-                new Result(Code.ZHI_HU_UPDATE_OK):
+        return flag ?
+                new Result(Code.ZHI_HU_UPDATE_OK) :
                 new Result(Code.ZHI_HU_UPDATE_ERR);
     }
 

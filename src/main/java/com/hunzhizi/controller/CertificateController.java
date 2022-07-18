@@ -21,31 +21,32 @@ public class CertificateController {
     private CertificateService certificateService;
 
     @PostMapping
-    public Result addCertificate(Certificate certificate){
+    public Result addCertificate(Certificate certificate) {
         boolean flag = certificateService.addCertificate(certificate);
-        return flag?
-                new Result(Code.CERTIFICATE_SAVE_OK):
+        return flag ?
+                new Result(Code.CERTIFICATE_SAVE_OK) :
                 new Result(Code.CERTIFICATE_SAVE_ERR);
     }
 
     @DeleteMapping("/fail")
-    public Result certificateFail(Certificate certificate){
+    public Result certificateFail(Certificate certificate) {
         boolean flag = certificateService.certificate(false, certificate);
-        return  flag?
-                new Result(Code.CERTIFICATE_UPDATE_OK):
+        return flag ?
+                new Result(Code.CERTIFICATE_UPDATE_OK) :
                 new Result(Code.CERTIFICATE_UPDATE_ERR);
     }
+
     @DeleteMapping("/success")
-    public Result certificateSuccess(Certificate certificate){
+    public Result certificateSuccess(Certificate certificate) {
         boolean flag = certificateService.certificate(true, certificate);
-        return  flag?
-                new Result(Code.CERTIFICATE_UPDATE_OK):
+        return flag ?
+                new Result(Code.CERTIFICATE_UPDATE_OK) :
                 new Result(Code.CERTIFICATE_UPDATE_ERR);
     }
 
     @GetMapping("/{pageNum}/{pageSize}")
-    public Result getAllCertificate(@PathVariable Integer pageNum, @PathVariable Integer pageSize){
+    public Result getAllCertificate(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
         PageInfo<Certificate> allCertificate = certificateService.getAllCertificate(pageNum, pageSize);
-        return new Result(Code.CERTIFICATE_GET_OK,allCertificate);
+        return new Result(Code.CERTIFICATE_GET_OK, allCertificate);
     }
 }

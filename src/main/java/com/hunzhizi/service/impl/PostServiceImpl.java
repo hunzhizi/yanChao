@@ -22,36 +22,36 @@ public class PostServiceImpl implements PostService {
     @Autowired
     private PostDao postDao;
 
-    public boolean createPost(Post post){
-       return postDao.createPost(post);
+    public boolean createPost(Post post) {
+        return postDao.createPost(post);
     }
 
-    public boolean delPostByPostId(Integer postId){
+    public boolean delPostByPostId(Integer postId) {
         return postDao.delPostByPostId(postId);
     }
 
-    public boolean updatePost(Post post){
+    public boolean updatePost(Post post) {
         post.setLastEditTime(new Date());
         post.setPriority();
         //如果帖子的举报数量超过10 ，就将其delete掉
-        if(post.getReportNum()!=null && post.getReportNum()>=10){
+        if (post.getReportNum() != null && post.getReportNum() >= 10) {
             return postDao.delPostByPostId(post.getPostId());
         }
         return postDao.updatePost(post);
     }
 
-    public List<Post> getPostByUserId(Integer userId){
+    public List<Post> getPostByUserId(Integer userId) {
         return postDao.getPostByUserId(userId);
     }
 
-    public PageInfo<Post> getPostByPriority(int pageNum,int pageSize){
-        PageHelper.startPage(pageNum,pageSize);
+    public PageInfo<Post> getPostByPriority(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Post> posts = postDao.getPostByPriority();
         return new PageInfo<Post>(posts);
     }
 
-    public PageInfo<Post> getPostByLastEditTime(int pageNum,int pageSize){
-        PageHelper.startPage(pageNum,pageSize);
+    public PageInfo<Post> getPostByLastEditTime(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Post> posts = postDao.getPostByLastEditTime();
         return new PageInfo<Post>(posts);
     }

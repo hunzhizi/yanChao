@@ -15,23 +15,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ZhiHuQuestionDaoTest extends BaseTest {
     @Autowired
     private ZhiHuQuestionDao dao;
+
     @Test
-    public void getQuestionsByPriority(){
+    public void getQuestionsByPriority() {
 
     }
+
     @Test
-    public void createQuestion(){
+    public void createQuestion() {
         ZhiHuQuestion zhiHuQuestion = new ZhiHuQuestion();
         zhiHuQuestion.setUserId(1);
         zhiHuQuestion.setQuestionContent("欢迎大家来到燕巢的校园知乎，有什么问题尽管提问");
         dao.createQuestion(zhiHuQuestion);
     }
+
     @Test
-    public void delQuestionById(){
+    public void delQuestionById() {
 
     }
+
     @Test
-    public void updateQuestion(){
+    public void updateQuestion() {
         ZhiHuQuestion zhiHuQuestion = new ZhiHuQuestion();
         zhiHuQuestion.setZhiHuQuestionId(1);
         zhiHuQuestion.setQuestionContent("欢迎大家来到燕巢的校园知乎，有什么问题尽管提问hhh");

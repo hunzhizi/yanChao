@@ -15,7 +15,6 @@ public class Code {
     public static final Integer PROFILE_GET_OK = 20051;
 
 
-
     public static final Integer USER_SAVE_ERR = 20010;
     public static final Integer USER_UPDATE_ERR = 20020;
     public static final Integer USER_GET_ERR = 20040;

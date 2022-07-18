@@ -15,7 +15,6 @@ import java.util.List;
 @Transactional(readOnly = true)
 public interface PostService {
     @Transactional(readOnly = false)
-
     boolean createPost(Post post);
 
     @Transactional(readOnly = false)
@@ -26,7 +25,7 @@ public interface PostService {
 
     List<Post> getPostByUserId(Integer userId);
 
-    public PageInfo<Post> getPostByPriority(int pageNum,int pageSize);
+    public PageInfo<Post> getPostByPriority(int pageNum, int pageSize);
 
-    public PageInfo<Post> getPostByLastEditTime(int pageNum,int pageSize);
+    public PageInfo<Post> getPostByLastEditTime(int pageNum, int pageSize);
 }
